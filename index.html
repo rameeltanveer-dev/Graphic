@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Visionary Creations Studio — Profile Card</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+    :root{
+      --bg:#000;
+      --accent-blue:#0ea5d7;
+      --accent-gold:#ffd36b;
+      --muted:#cfcfcf;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background:var(--bg);
+      font-family:"Inter",sans-serif;
+      color:var(--muted);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      padding:30px;
+    }
+
+    .card{
+      width:100%;
+      max-width:1100px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,211,107,0.1);
+      border-radius:16px;
+      overflow:hidden;
+      position:relative;
+      box-shadow:0 40px 120px rgba(0,0,0,0.7);
+      animation:fadeIn .7s ease;
+    }
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+    .wrap{display:flex;gap:30px;padding:36px;flex-wrap:wrap}
+    .left{
+      flex:0 0 300px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+    }
+    .photo{
+      width:280px;height:280px;object-fit:cover;border-radius:14px;
+      border:5px solid rgba(255,211,107,0.15);
+      box-shadow:0 0 25px rgba(255,211,107,0.15);
+    }
+    .person-name{
+      color:var(--accent-gold);
+      font-weight:800;
+      font-size:22px;
+    }
+
+    .right{flex:1;display:flex;flex-direction:column;gap:20px}
+    .studio-name{
+      font-size:34px;font-weight:800;
+      background:linear-gradient(90deg,var(--accent-gold),var(--accent-blue));
+      -webkit-background-clip:text;color:transparent;
+    }
+
+    .roles{display:flex;flex-direction:column;gap:14px}
+    .role-item{display:flex;gap:20px;flex-wrap:wrap}
+    .role-label{
+      color:var(--accent-gold);
+      font-weight:700;
+      min-width:300px;
+    }
+    .role-names p{margin:0;color:var(--muted);font-weight:600}
+
+    .contact-row{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:20px 36px;border-top:1px solid rgba(255,211,107,0.15);
+      flex-wrap:wrap;gap:15px;
+    }
+    .contact-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+    .contact-right a{color:var(--accent-gold);text-decoration:none;font-weight:700}
+    .contact-right i{margin-right:8px;color:var(--accent-blue)}
+
+    @media(max-width:800px){
+      .wrap{flex-direction:column;align-items:center}
+      .left{flex:unset}
+      .contact-row{flex-direction:column;align-items:flex-start}
+      .contact-right{align-items:flex-start}
+    }
+
+    /* Particles */
+    .particles{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+    .particle{position:absolute;border-radius:50%;background:radial-gradient(circle,#ffd36b,#0ea5d7);filter:blur(6px);opacity:0.6;}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="wrap">
+      <div class="left">
+        <img class="photo" src="https://dl.dropboxusercontent.com/scl/fi/jtodojdbclq1y0o3c4vm3/IMG-20251026-WA0043.jpg" alt="Rameel Tanveer">
+        <div class="person-name">Rameel Tanveer</div>
+      </div>
+
+      <div class="right">
+        <div class="studio-name">Visionary Creations Studio</div>
+
+        <div class="roles">
+          <div class="role-item">
+            <div class="role-label">Graphic Designer / UI &amp; UX</div>
+            <div class="role-names"><p>Muhammad Moiz</p></div>
+          </div>
+
+          <div class="role-item">
+            <div class="role-label">Full Stack Developer / Web &amp; App Designer</div>
+            <div class="role-names">
+              <p>Rameel Tanveer</p>
+              <p>Abdul Wadood</p>
+              <p>Abdul Hadi</p>
+              <p>Muhammad Altaf</p>
+              <p>Ahmed Maqbool</p>
+            </div>
+          </div>
+
+          <div class="role-item">
+            <div class="role-label">Content Creation / Video Editing / 2D / 3D Animation</div>
+            <div class="role-names"><p>Rameel Tanveer</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-row">
+      <div class="contact-left">
+        <strong style="color:var(--accent-gold)">Visionary Creations Studio</strong><br>
+        <span>Turning ideas into stunning digital reality</span>
+      </div>
+      <div class="contact-right">
+        <div><i class="fab fa-whatsapp"></i><span class="phone">+92 319 6393269</span></div>
+        <div><i class="fa fa-envelope"></i><a href="mailto:visionarycreationsstudio@gmail.com">visionarycreationsstudio@gmail.com</a></div>
+      </div>
+    </div>
+
+    <div class="particles"></div>
+  </div>
+
+  <script>
+    // particles animation
+    const parent=document.querySelector('.particles');
+    for(let i=0;i<25;i++){
+      const p=document.createElement('div');
+      p.className='particle';
+      const s=Math.random()*10+6;
+      p.style.width=s+'px';p.style.height=s+'px';
+      p.style.left=Math.random()*100+'%';
+      p.style.top=Math.random()*100+'%';
+      parent.appendChild(p);
+      animateParticle(p);
+    }
+    function animateParticle(p){
+      const x=Math.random()*200-100;
+      const y=Math.random()*200-100;
+      const dur=Math.random()*8000+8000;
+      p.animate([
+        {transform:'translate(0,0)',opacity:0.7},
+        {transform:`translate(${x}px,${y}px)`,opacity:0}
+      ],{duration:dur,iterations:Infinity,easing:'ease-in-out'});
+    }
+  </script>
+</body>
+</html>
